@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>
+            Languages APP BY APARNA
+        </title>
+        <style>
+            * {font-size:30px; font-family: Arial, Helvetica, sans-serif;
+            }
+            body{background-color: bisque;}
+            h1{background-color: blanchedalmond; width:500px}
+            input[type="checkbox"] {width:2%; height:0.8em; margin-left: 30px;}
+            .btn {width:25%;background-color:rgb(243, 190, 125);}
+
+        </style>
+    </head>
+        <body>
+            <center>
+                <form onsubmit = "show()"><br>
+                    <h1>Languages You Know App</h1>
+                    <br>
+                    <input type="text" placeholder ="Enter your name" id="name"/>
+                    <br>
+                    <br>
+                    <input type="checkbox"  id="js" />JavaScript
+                    <input type="checkbox"  id="ja" />Java
+                    <input type="checkbox"  id="py" />Python
+                    <br><br>
+                    <input type="submit" class="btn"/>
+                </form>
+                    <h2 id="msg"/>
+            </center>
+            <script>
+                function show(){
+                    event.preventDefault();
+                    let name = document.getElementById("name");
+                    let js = document.getElementById("js");
+                    let ja = document.getElementById("ja");
+                    let py = document.getElementById("py");
+                    let msg = document.getElementById("msg");
+
+                    let choice ="";
+                    if(js.checked)     choice += "JavaScript ";
+                    if(ja.checked)     choice += "Java ";
+                    if(py.checked)     choice += "Python ";
+                    if (choice.length==0){
+                        choice=" then learn something.";
+                     }
+
+                    if (name.value.trim() ==""){
+                        alert("You did not enter name ");
+                        msg.innerHTML="";
+                        name.focus();
+                        return;
+                    }
+
+          
+                    if (! name.value.match(/^[A-Za-z ]+$/)){
+                        alert("Name  should be only alphabets");
+                        msg.innerHTML="";
+                        name.value="";
+                        name.focus();
+                        return;
+                     }
+                
+                        let ans = "name = "+name.value.trim()+", choice = "+choice;
+                        msg.innerHTML = ans;
+                 
+                    }
+            </script>
+        </body>
+</html>
